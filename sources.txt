@@ -1,0 +1,7 @@
+./ro/academyplus/avaj/vehicles/Balloon.java
+./ro/academyplus/avaj/vehicles/Aircraft.java
+./ro/academyplus/avaj/vehicles/JetPlane.java
+./ro/academyplus/avaj/vehicles/Flyable.java
+./ro/academyplus/avaj/vehicles/Helicopter.java
+./ro/academyplus/avaj/weather/WeatherProvider.java
+./ro/academyplus/avaj/weather/Coordinates.java
