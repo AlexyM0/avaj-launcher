@@ -14,4 +14,8 @@ public abstract class Aircraft {
         this.name = name;
         this.coordinates = coordinates;
     }
+
+    public String toString() {
+        return this.getClass().getSimpleName() + "#" + name + "(" + id + ")";
+    }
 }

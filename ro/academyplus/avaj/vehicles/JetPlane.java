@@ -2,13 +2,21 @@ package ro.academyplus.avaj.vehicles;
 
 import ro.academyplus.avaj.weather.Coordinates;
 import ro.academyplus.avaj.weather.WeatherProvider;
+import ro.academyplus.avaj.simulator.Logger;
+import ro.academyplus.avaj.tower.WeatherTower;
 
 public class JetPlane extends Aircraft implements Flyable {
     private WeatherProvider weatherProvider;
+    private WeatherTower weatherTower;
 
     public JetPlane(String name, Coordinates coordinates) {
         super(name, coordinates);
         this.weatherProvider = WeatherProvider.getInstance();
+    }
+
+    public void registerTower(WeatherTower tower) {
+        this.weatherTower = tower;
+        tower.register(this);
     }
 
     @Override
@@ -20,16 +28,20 @@ public class JetPlane extends Aircraft implements Flyable {
 
         switch (weather) {
             case "SUN":
+                Logger.write("JetPlane#" + name + "(" + id + "): It's sunny. Time to break the sound barrier!");
                 latitude += 10;
                 height += 2;
                 break;
             case "RAIN":
+                Logger.write("JetPlane#" + name + "(" + id + "): It's raining. Better watch out for lightings.");
                 latitude += 5;
                 break;
             case "FOG":
+                Logger.write("JetPlane#" + name + "(" + id + "): Flying blind through the fog!");
                 latitude += 1;
                 break;
             case "SNOW":
+                Logger.write("JetPlane#" + name + "(" + id + "): OMG! Winter is coming!");
                 height -= 7;
                 break;
         }
@@ -38,5 +50,10 @@ public class JetPlane extends Aircraft implements Flyable {
         if (height < 0) height = 0;
 
         this.coordinates = new Coordinates(longitude, latitude, height);
+
+        if (this.coordinates.getHeight() == 0) {
+            Logger.write("JetPlane#" + name + "(" + id + ") landing.");
+            weatherTower.unregister(this);
+        }
     }
 }
