@@ -14,7 +14,7 @@ public class AircraftFactory {
             case "Helicopter":
                 return new Helicopter(name, coordinates);
             default:
-                throw new IllegalArgumentException("Invalid aircraft type: " + type);
+                throw new IllegalArgumentException("Invalid aircraft");
         }
     }
 }
