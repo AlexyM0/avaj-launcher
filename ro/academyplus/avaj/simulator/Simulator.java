@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import ro.academyplus.avaj.tower.WeatherTower;
 import ro.academyplus.avaj.vehicles.AircraftFactory;
 import ro.academyplus.avaj.vehicles.Flyable;
+import ro.academyplus.avaj.weather.Coordinates;
 
 public class Simulator {
     public static void main(String[] args) {
@@ -53,7 +54,8 @@ public class Simulator {
                     throw new IllegalArgumentException("line " + lineNumber + ": coordinates must be positive");
                 if (height > 100)
                     throw new IllegalArgumentException("line " + lineNumber + ": height must be between 0 and 100");
-                Flyable aircraft = AircraftFactory.newAircraft(parts[0], parts[1], longitude, latitude, height);
+                Coordinates coordinates = new Coordinates(longitude, latitude, height);
+                Flyable aircraft = AircraftFactory.getInstance().newAircraft(parts[0], parts[1], coordinates);
                 aircraft.registerTower(weatherTower);
             }
             reader.close();

@@ -20,7 +20,7 @@ public abstract class Tower {
         Logger.write("Tower says: " + flyable + " unregistered from weather tower.");
     }
     
-    protected void conditionsChanged() {
+    protected void conditionChanged() {
         for (Flyable flyable : new ArrayList<>(observers)) {
             flyable.updateConditions();
         }

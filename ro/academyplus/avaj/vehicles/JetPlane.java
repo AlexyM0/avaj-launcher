@@ -3,20 +3,13 @@ package ro.academyplus.avaj.vehicles;
 import ro.academyplus.avaj.weather.Coordinates;
 import ro.academyplus.avaj.weather.WeatherProvider;
 import ro.academyplus.avaj.simulator.Logger;
-import ro.academyplus.avaj.tower.WeatherTower;
 
-public class JetPlane extends Aircraft implements Flyable {
+public class JetPlane extends Aircraft {
     private WeatherProvider weatherProvider;
-    private WeatherTower weatherTower;
 
-    public JetPlane(String name, Coordinates coordinates) {
-        super(name, coordinates);
+    public JetPlane(long p_id, String p_name, Coordinates p_coordinate) {
+        super(p_id, p_name, p_coordinate);
         this.weatherProvider = WeatherProvider.getInstance();
-    }
-
-    public void registerTower(WeatherTower tower) {
-        this.weatherTower = tower;
-        tower.register(this);
     }
 
     @Override
