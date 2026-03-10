@@ -1,6 +1,6 @@
-package ro.academyplus.avaj.vehicles;
+package vehicles;
 
-import ro.academyplus.avaj.weather.Coordinates;
+import weather.Coordinates;
 
 public class AircraftFactory {
     private static AircraftFactory instance = null;

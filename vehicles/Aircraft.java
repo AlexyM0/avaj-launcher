@@ -1,8 +1,8 @@
-package ro.academyplus.avaj.vehicles;
+package vehicles;
 
-import ro.academyplus.avaj.weather.Coordinates;
+import weather.Coordinates;
 
-public abstract class Aircraft extends Flyable {
+public class Aircraft extends Flyable {
 
     protected long id;
     protected String name;
@@ -13,6 +13,8 @@ public abstract class Aircraft extends Flyable {
         this.name = p_name;
         this.coordinates = p_coordinate;
     }
+
+    public void updateConditions() {}
 
     public String toString() {
         return this.getClass().getSimpleName() + "#" + name + "(" + id + ")";

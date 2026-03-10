@@ -1,13 +1,13 @@
-package ro.academyplus.avaj.simulator;
+package simulator;
 
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileNotFoundException;
-import ro.academyplus.avaj.tower.WeatherTower;
-import ro.academyplus.avaj.vehicles.AircraftFactory;
-import ro.academyplus.avaj.vehicles.Flyable;
-import ro.academyplus.avaj.weather.Coordinates;
+import tower.WeatherTower;
+import vehicles.AircraftFactory;
+import vehicles.Flyable;
+import weather.Coordinates;
 
 public class Simulator {
     public static void main(String[] args) {

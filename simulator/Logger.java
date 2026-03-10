@@ -1,4 +1,4 @@
-package ro.academyplus.avaj.simulator;
+package simulator;
 
 import java.io.FileWriter;
 import java.io.PrintWriter;

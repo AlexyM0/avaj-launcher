@@ -1,4 +1,4 @@
-package ro.academyplus.avaj.weather;
+package weather;
 
 public class WeatherProvider {
     private static WeatherProvider instance = null;
@@ -15,8 +15,8 @@ public class WeatherProvider {
 
     private String[] weather = { "SUN", "RAIN", "FOG", "SNOW" };
 
-    public String getCurrentWeather(Coordinates coordinates) {
-        int sum = coordinates.getLongitude() + coordinates.getLatitude() + coordinates.getHeight();
+    public String getCurrentWeather(Coordinates p_coordinates) {
+        int sum = p_coordinates.getLongitude() + p_coordinates.getLatitude() + p_coordinates.getHeight();
         return weather[sum % 4];
     }
 }

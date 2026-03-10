@@ -1,6 +1,6 @@
-package ro.academyplus.avaj.vehicles;
+package vehicles;
 
-import ro.academyplus.avaj.tower.WeatherTower;
+import tower.WeatherTower;
 
 public abstract class Flyable {
     protected WeatherTower weatherTower;

@@ -1,13 +1,13 @@
-package ro.academyplus.avaj.vehicles;
+package vehicles;
 
-import ro.academyplus.avaj.weather.Coordinates;
-import ro.academyplus.avaj.weather.WeatherProvider;
-import ro.academyplus.avaj.simulator.Logger;
+import weather.Coordinates;
+import weather.WeatherProvider;
+import simulator.Logger;
 
-public class JetPlane extends Aircraft {
+public class Balloon extends Aircraft {
     private WeatherProvider weatherProvider;
 
-    public JetPlane(long p_id, String p_name, Coordinates p_coordinate) {
+    public Balloon(long p_id, String p_name, Coordinates p_coordinate) {
         super(p_id, p_name, p_coordinate);
         this.weatherProvider = WeatherProvider.getInstance();
     }
@@ -21,21 +21,21 @@ public class JetPlane extends Aircraft {
 
         switch (weather) {
             case "SUN":
-                Logger.write("JetPlane#" + name + "(" + id + "): It's sunny. Time to break the sound barrier!");
-                latitude += 10;
-                height += 2;
+                Logger.write("Balloon#" + name + "(" + id + "): Let's enjoy the good weather and take some pics.");
+                longitude += 2;
+                height += 4;
                 break;
             case "RAIN":
-                Logger.write("JetPlane#" + name + "(" + id + "): It's raining. Better watch out for lightings.");
-                latitude += 5;
+                Logger.write("Balloon#" + name + "(" + id + "): Damn you rain! You messed up my balloon.");
+                height -= 5;
                 break;
             case "FOG":
-                Logger.write("JetPlane#" + name + "(" + id + "): Flying blind through the fog!");
-                latitude += 1;
+                Logger.write("Balloon#" + name + "(" + id + "): I can't see anything in this fog!");
+                height -= 3;
                 break;
             case "SNOW":
-                Logger.write("JetPlane#" + name + "(" + id + "): OMG! Winter is coming!");
-                height -= 7;
+                Logger.write("Balloon#" + name + "(" + id + "): It's snowing. We're gonna crash.");
+                height -= 15;
                 break;
         }
 
@@ -45,7 +45,7 @@ public class JetPlane extends Aircraft {
         this.coordinates = new Coordinates(longitude, latitude, height);
 
         if (this.coordinates.getHeight() == 0) {
-            Logger.write("JetPlane#" + name + "(" + id + ") landing.");
+            Logger.write("Balloon#" + name + "(" + id + ") landing.");
             weatherTower.unregister(this);
         }
     }

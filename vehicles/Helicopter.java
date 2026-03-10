@@ -1,8 +1,8 @@
-package ro.academyplus.avaj.vehicles;
+package vehicles;
 
-import ro.academyplus.avaj.weather.Coordinates;
-import ro.academyplus.avaj.weather.WeatherProvider;
-import ro.academyplus.avaj.simulator.Logger;
+import weather.Coordinates;
+import weather.WeatherProvider;
+import simulator.Logger;
 
 public class Helicopter extends Aircraft {
     private WeatherProvider weatherProvider;
